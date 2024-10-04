@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 const Stopwatch = () => {
-  const [elapsedTime, setElaspsedTime] = useState("");
+  const [elapsedTime, setElaspsedTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
 
   const startStopwatch = () => {
@@ -16,9 +16,17 @@ const Stopwatch = () => {
     setElaspsedTime(0);
     setIsRunning(false);
   };
+
+  const formatTime = () => {
+    const hour = (elapsedTime / (1000 * 60 * 60))
+    const minute = (elapsedTime /(1000 * 60))
+    const second = (elapsedTime / 1000)
+  }
   useEffect(() => {
     if (isRunning === true) {
-      setElaspsedTime((prevTime) => prevTime + 1000);
+      setInterval(() => {
+        setElaspsedTime((prevTime) => prevTime + 1000);
+      }, 100);
     }
   }, [isRunning]);
 
