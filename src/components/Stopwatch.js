@@ -17,19 +17,19 @@ const Stopwatch = () => {
     setIsRunning(false);
   };
   useEffect(() => {
-    if(isRunning === true){
-        setElaspsedTime((prevTime) => prevTime + 1000);
+    if (isRunning === true) {
+      setElaspsedTime((prevTime) => prevTime + 1000);
     }
-  
   }, [isRunning]);
 
   return (
-    <section> 
-        <h2>STOPWATCH</h2>
-        <div>{elapsedTime}</div>
-        <button onClick={startStopwatch}>Start</button>
-        <button ></button>
+    <section>
+      <h2>STOPWATCH</h2>
+      <div>{elapsedTime}</div>
+      <button onClick={startStopwatch}>Start</button>
+      <button onClick={stopStopwatch}>Stop</button>
+      <button onClick={resetStopwatch}>Reset</button>
     </section>
-  )
+  );
 };
 export default Stopwatch;
